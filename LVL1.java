@@ -19,6 +19,11 @@ public class LVL1 extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
         addObject(nave, 300, 250);
+        addObject(new Edificio1(),400,250);
+        addObject(new Edificio2(),500,250);
+        addObject(new Asteroide(),700,250);
+         
+        
     }
     
     public void act()
