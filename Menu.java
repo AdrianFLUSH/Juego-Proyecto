@@ -27,4 +27,5 @@ public class Menu extends World
         addObject(new HelpButton(),150,270+60);
         addObject(new ExitButton(),450,270+60);
     }
+    //Cambio porque no referencié el issue
 }
