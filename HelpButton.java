@@ -17,11 +17,9 @@ public class HelpButton extends Button
         setImage("images/Help.png");
     }
     
-    public void act() 
+    
+    protected void onClickedButton()
     {
-        if (Greenfoot.mouseClicked(this)) {//true if you clicked at this object;
-            setImage("images/Help.png"); //changes the image of the button so that you see if it's clicked;
-            Greenfoot.setWorld (new Help());//also add the methods you want to execute;
-        }// Add your action code here.
-    }    
+        Greenfoot.setWorld(new Help());
+    }
 }
