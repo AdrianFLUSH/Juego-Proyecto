@@ -14,20 +14,26 @@ public class LVL1 extends World
      * 
      */
     Nave nave = new Nave();
+    Enemigo alien1= new Alien1();
     public LVL1()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
-        addObject(nave, 300, 250);
         addObject(new Edificio1(),400,250);
         addObject(new Edificio2(),500,250);
         addObject(new Asteroide(),700,250);
-         
-        
+        addObject(alien1, 200, 200);
+        addObject(new Alien2(), 300, 100);
+        addObject(nave, 300, 250);
     }
     
     public void act()
     {
-        showText("DEMO" , 400, 30);
+        showText("DEMO" , 200, 30);
+        showText("Vidas" + nave.vidas(), 400,30);
+        //if(alien1.espacio() == 1)
+        {
+            //removeObject(alien1);
+        }
     }
 }

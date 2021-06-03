@@ -13,17 +13,47 @@ public class Nave extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     private int currentImage;
-    private int counter;
+    private int counter = 0;
     private int Score;
+    private int vidas = 4;
     
     public Nave()
     {
-        setImage("images/Base-nave.png");
+        setImage("images/Nave.png");
     }
     public void act() 
     {
         handleDirection();
+        Choque();
+        animacion();
     }    
+    public int vidas()
+    {
+        return vidas;
+    }
+    public void Choque()
+    {
+        if(isTouching(Enemigo.class)){
+            Enemigo enemigo=(Enemigo)getOneIntersectingObject(Enemigo.class);
+            removeTouching(Enemigo.class);
+            if(counter == 0)
+            {
+                vidas--;
+                
+            }
+            
+        }
+        if(isTouching(Obstaculo.class)){
+            Obstaculo obstaculo=(Obstaculo)getOneIntersectingObject(Obstaculo.class);
+            
+            if(counter == 0)
+            {
+                vidas--;
+                
+            }
+            counter = (counter + 1)%200;
+        }
+    }
     public void handleDirection()
     {
         int x = getX();
@@ -32,13 +62,13 @@ public class Nave extends Actor
         if(Greenfoot.isKeyDown("right"))
         {
            
-           
+            currentImage = 1;
             setLocation(x + OFFSET, y);
         }
         else if(Greenfoot.isKeyDown("left"))
         {
             
-            
+            currentImage = 2;
             setLocation(x - OFFSET, y);
         }
         else if(Greenfoot.isKeyDown("up"))
@@ -52,6 +82,25 @@ public class Nave extends Actor
             
             
             setLocation(x , y + OFFSET);
+        }else
+        {
+            currentImage=0;
         }
     }
+    public void animacion()
+    {
+        if(currentImage ==1)
+        {
+            setImage("images/NaveD.png");
+        }else if(currentImage ==2 )
+        {
+            setImage("images/NaveI.png");
+        }else if(currentImage ==0)
+        {
+            setImage("images/Nave.png");
+        }
+    
+    }
 }
+
+
