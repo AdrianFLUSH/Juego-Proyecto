@@ -24,14 +24,14 @@ public class Nave extends Actor
     public void act() 
     {
         handleDirection();
-        Choque();
+        choque();
         animacion();
     }    
     public int vidas()
     {
         return vidas;
     }
-    public void Choque()
+    public void choque()
     {
         if(isTouching(Enemigo.class)){
             Enemigo enemigo=(Enemigo)getOneIntersectingObject(Enemigo.class);

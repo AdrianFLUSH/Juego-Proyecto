@@ -18,13 +18,9 @@ public class Enemigo extends Actor
         return 0;
     }
 
-    //public int espacio()
-    {
-        //return 0;
-    }
 
     public void act() 
     {
-        
+
     }    
 }

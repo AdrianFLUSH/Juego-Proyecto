@@ -29,16 +29,7 @@ public class Alien1 extends Enemigo
             setLocation(x, y + OFFSET);
             counter = counter + 1;
         }
-        //if(isAtEdge())
-            {
-                //espacio();
-            }
     }
-    //public int espacio()
-    {
-        //return 1;
-    }
-    
     public void act() 
     {
         movimiento();
