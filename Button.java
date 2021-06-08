@@ -17,11 +17,13 @@ public abstract class Button extends Actor
     {
         checkClick();
     }    
-    
+
     public void checkClick()
     {
-         onClickedButton();
+        if (Greenfoot.mouseClicked(this)){
+            onClickedButton();
+        }
     }
-    
+
     protected abstract void onClickedButton();
 }
