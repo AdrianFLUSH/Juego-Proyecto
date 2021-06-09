@@ -14,20 +14,64 @@ public class LVL1 extends World
      * 
      */
     Nave nave = new Nave();
+    public int counter = 0;
     public LVL1()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
+        setBackground(new GreenfootImage("Fondo.png"));
         addObject(nave, 300, 250);
-        addObject(new Edificio1(),400,250);
-        addObject(new Edificio2(),500,250);
-        addObject(new Asteroide(),700,250);
-         
-        
+    }
+    public void generaEnemigos()
+    {
+        int i;
+        if(counter!=4000)
+        {
+            if(counter==1 || counter==100 || counter ==190 || counter==350 || counter == 600 || counter == 1700 || counter == 2900)
+            {
+                addObject(new Alien1(),300,100);
+            }
+            if(counter==400 || counter == 500 || counter == 600 || counter== 650 || counter == 3600)
+            {
+                addObject(new Alien2(),400,100);
+            }
+            if(counter ==700 || counter == 1200)
+            {
+                int o = 0;
+                for(i=0;i<5;i++)
+                {
+                    addObject(new Alien1(),200 + o, 100);
+                    o =  o + 50;
+                }
+            }
+            if(counter ==1700 || counter == 2300)
+            {
+                int o = 0;
+                for(i=0;i<2;i++)
+                {
+                    addObject(new Alien2(),200 + o, 100);
+                    o =  o + 50;
+                }
+            }
+            if(counter ==2900 || counter == 3600)
+            {
+                int o = 0;
+                for(i=0;i<2;i++)
+                {
+                    addObject(new Alien2(),100 + o, 100);
+                    addObject(new Alien1(),300 + o, 100);
+                    o =  o + 50;
+                }
+            }
+            counter = counter + 1;
+        }
     }
     
     public void act()
     {
-        showText("DEMO" , 400, 30);
+        showText("DEMO" , 200, 30);
+        showText("Vidas" + nave.vidas(), 400,30);
+        showText("puntos" + nave.Score(), 300, 30);
+        generaEnemigos();
     }
 }

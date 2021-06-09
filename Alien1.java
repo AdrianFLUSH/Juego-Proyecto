@@ -12,8 +12,36 @@ public class Alien1 extends Enemigo
      * Act - do whatever the Alien1 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    int counter;
+    public Alien1()
+    {
+
+        setImage("images/Alien-1.png");
+
+    }
+    public int Score()
+    {
+       return 10; 
+    }
+
+    public void movimiento()
+    {
+        int x = getX();
+        int y = getY();
+        int speed = 1;
+        if(counter !=380)
+        {
+            setLocation(x, y + speed);
+            counter = counter + 1;
+            if(isAtEdge())
+            {
+                this.getWorld().removeObject(this);
+            }
+        }
+    }
+
     public void act() 
     {
-        // Add your action code here.
+        movimiento();
     }    
 }
