@@ -1,41 +1,34 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Proyectil here.
+ * Write a description of class ProyectilE here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Proyectil extends Actor
+public class ProyectilE extends Proyectil
 {
     /**
-     * Act - do whatever the Proyectil wants to do. This method is called whenever
+     * Act - do whatever the ProyectilE wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-
     private int counter;
     private int score;
     private int p = 0;
-    public Proyectil()
+    public ProyectilE()
     {
-        setImage("images/Bala.png");
+        setImage("images/BalaE.png");
     }
 
     public void disparo()
     {
         int x = getX();
         int y = getY();
-        int speed = 4;
+        int speed = 2;
         if(counter !=380)
         {
-            setLocation(x, y - speed);
+            setLocation(x, y + speed);
             counter = counter + 1;
-        }
-        if(isTouching(Enemigo.class))
-        {
-            Enemigo enemigo=(Enemigo)getOneIntersectingObject(Enemigo.class);
-            removeTouching(Enemigo.class);
-            p = 1;
         }
     }
 
@@ -55,5 +48,5 @@ public class Proyectil extends Actor
     {
         disparo();
         colisiones();
-    }   
+    }      
 }

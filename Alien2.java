@@ -12,7 +12,7 @@ public class Alien2 extends Enemigo
      * Act - do whatever the Alien2 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    int counter;
+    private int counter;
     public Alien2()
     {
         setImage("images/Alien 2.png");

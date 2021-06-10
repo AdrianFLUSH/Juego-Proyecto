@@ -14,7 +14,7 @@ public class Nave extends Actor
      */
     private int currentImage;
     private int counter = 0;
-    public int Score =0;
+    private int Score =0;
     private int vidas = 4;
 
     public Nave()
@@ -33,6 +33,7 @@ public class Nave extends Actor
     {
         return vidas;
     }
+
     public int Score()
     {
         return Score;
@@ -43,6 +44,7 @@ public class Nave extends Actor
         Proyectil bala = new Proyectil();
         getWorld().addObject(bala, getX(),getY());
     }
+
     public void choque()
     {
         if(isTouching(Enemigo.class)){
@@ -54,7 +56,8 @@ public class Nave extends Actor
 
             }
             counter = (counter + 1)%200;
-        }else if(isTouching(Obstaculo.class)){
+        } 
+        if(isTouching(Obstaculo.class)){
             Obstaculo obstaculo=(Obstaculo)getOneIntersectingObject(Obstaculo.class);
 
             if(counter == 0)
@@ -64,6 +67,18 @@ public class Nave extends Actor
             }
             counter = (counter + 1)%200;
         }
+        if(isTouching(ProyectilE.class))
+        {
+            ProyectilE balaE = (ProyectilE)getOneIntersectingObject(ProyectilE.class);
+            removeTouching(ProyectilE.class);
+            if(counter == 0)
+            {
+                vidas--;
+
+            }
+            counter = (counter + 1)%200;
+        }
+        
     }
 
     public void handleDirection()
@@ -112,6 +127,5 @@ public class Nave extends Actor
         {
             setImage("images/Nave.png");
         }
-
     }
 }
