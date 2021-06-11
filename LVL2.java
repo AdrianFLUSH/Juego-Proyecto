@@ -1,21 +1,21 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class LVL1 here.
+ * Write a description of class LVL2 here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class LVL1 extends World
+public class LVL2 extends World
 {
 
     /**
-     * Constructor for objects of class LVL1.
+     * Constructor for objects of class LVL2.
      * 
      */
     private Nave nave = new Nave();
-    private int counter = 3990;
-    public LVL1()
+    private int counter = 0;
+    public LVL2()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
@@ -45,6 +45,10 @@ public class LVL1 extends World
                     o =  o + 50;
                 }
             } 
+            if(counter == 750 || counter == 1000 || counter == 1300 || counter == 1700 || counter == 2200 || counter== 2600 ||counter == 3000 || counter == 3400)
+            {
+                addObject(new Alien3(),0, 30);
+            }
             if(counter ==1700 || counter == 2000 || counter == 2500)
             {
                 int o = 0;
@@ -64,27 +68,22 @@ public class LVL1 extends World
                     o =  o + 50;
                 }
             }
-            if(counter == 150 ||  counter == 1000 || counter == 1300 ||  counter == 2000 )
+            if(counter == 150 ||  counter == 600 || counter == 1000 || counter == 1300 ||  counter == 2000 )
             {
                 r = Greenfoot.getRandomNumber(301);
                 addObject(new Edificio1(),r, 10);
             }
-            if(counter == 500 || counter == 800 || counter == 2300 || counter == 2700 || counter == 3000 || counter == 3600 )
+            if(counter == 300 || counter == 500 || counter == 800 || counter == 2200 || counter == 2700 || counter == 3000 || counter == 3600 )
             {
                 r = Greenfoot.getRandomNumber(301);
                 addObject(new Edificio2(),r, 10);
             }
             if(counter == 4000)
             {
-                cambiarMundo();
+                Greenfoot.setWorld(new LVL2());
             }
             counter = counter + 1;
         }
-    }
-    
-    public void cambiarMundo()
-    {
-        Greenfoot.setWorld(new LVL2());
     }
 
     public void act()
