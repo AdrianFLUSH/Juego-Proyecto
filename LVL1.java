@@ -14,7 +14,7 @@ public class LVL1 extends World
      * 
      */
     private Nave nave = new Nave();
-    private int counter = 3990;
+    private int counter = 0;
     public LVL1()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -89,9 +89,9 @@ public class LVL1 extends World
 
     public void act()
     {
-        showText("DEMO" , 200, 30);
-        showText("Vidas" + nave.vidas(), 400,30);
-        showText("puntos" + nave.Score(), 300, 30);
+        showText("LVL1" , 200, 30);
+        showText("Vidas: " + nave.vidas(), 400,30);
+        showText("Puntos: " + nave.Score(), 300, 30);
         generaEnemigos();
     }
 }
