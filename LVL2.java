@@ -80,7 +80,7 @@ public class LVL2 extends World
             }
             if(counter == 4000)
             {
-                Greenfoot.setWorld(new LVL2());
+                Greenfoot.setWorld(new YouWin());
             }
             counter = counter + 1;
         }
@@ -88,9 +88,9 @@ public class LVL2 extends World
 
     public void act()
     {
-        showText("DEMO" , 200, 30);
-        showText("Vidas" + nave.vidas(), 400,30);
-        showText("puntos" + nave.Score(), 300, 30);
+        showText("LVL2" , 200, 30);
+        showText("Vidas: " + nave.vidas(), 400,30);
+        showText("Puntos: " + nave.Score(), 300, 30);
         generaEnemigos();
     }
 }
