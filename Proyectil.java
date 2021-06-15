@@ -14,11 +14,12 @@ public class Proyectil extends Actor
      */
 
     private int counter;
-    private int score;
+    protected int Score;
     private int p = 0;
     public Proyectil()
     {
         setImage("images/Bala.png");
+        Score = 30;
     }
 
     public void disparo()
@@ -33,6 +34,8 @@ public class Proyectil extends Actor
         }
         if(isTouching(Enemigo.class))
         {
+            LVL1.score +=Score;
+            LVL2.score += Score;
             Enemigo enemigo=(Enemigo)getOneIntersectingObject(Enemigo.class);
             removeTouching(Enemigo.class);
             p = 1;

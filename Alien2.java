@@ -17,10 +17,6 @@ public class Alien2 extends Enemigo
     {
         setImage("images/Alien 2.png");
     }
-    public int Score()
-    {
-       return 15; 
-    }
 
     public void movimiento()
     {
