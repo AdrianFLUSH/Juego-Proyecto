@@ -19,7 +19,7 @@ public class Help extends World
         super(600, 400, 1); 
         addObject(new MenuButton(),400,330);
         
-        GreenfootImage background = new GreenfootImage("HowToPlay.JPG");
+        GreenfootImage background = new GreenfootImage("HowToPlay.png");
         background.scale(getWidth(), getHeight());
         setBackground(background);
     }

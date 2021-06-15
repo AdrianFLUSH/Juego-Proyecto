@@ -14,7 +14,6 @@ public class Nave extends Actor
      */
     private int currentImage;
     private int counter = 0;
-    private int Score =0;
     private int vidas = 4;
 
     public Nave()
@@ -34,11 +33,6 @@ public class Nave extends Actor
         return vidas;
     }
 
-    public int Score()
-    {
-        return Score;
-    }
-
     public void fire()
     {
         Proyectil bala = new Proyectil();
@@ -55,7 +49,7 @@ public class Nave extends Actor
                 vidas--;
 
             }
-            counter = (counter + 1)%200;
+            counter = (counter + 1)%50;
         } 
         if(isTouching(Obstaculo.class)){
             Obstaculo obstaculo=(Obstaculo)getOneIntersectingObject(Obstaculo.class);
@@ -65,7 +59,7 @@ public class Nave extends Actor
                 vidas--;
 
             }
-            counter = (counter + 1)%200;
+            counter = (counter + 1)%50;
         }
         if(isTouching(ProyectilE.class))
         {
@@ -76,9 +70,20 @@ public class Nave extends Actor
                 vidas--;
 
             }
-            counter = (counter + 1)%200;
+            counter = (counter + 1)%50;
         }
-        
+        if(vidas == 0)
+        {
+            gameover();
+        }
+
+    }
+
+    public void gameover()
+    {
+
+        Greenfoot.setWorld(new Menu());
+
     }
 
     public void handleDirection()

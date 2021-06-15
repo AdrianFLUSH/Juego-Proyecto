@@ -14,7 +14,8 @@ public class LVL2 extends World
      * 
      */
     private Nave nave = new Nave();
-    private int counter = 0;
+    private int counter ;
+    public static int score;
     public LVL2()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -26,7 +27,7 @@ public class LVL2 extends World
     public void generaEnemigos()
     {
         int i,r;
-        if(counter!=4000)
+        if(counter!=4001)
         {
             if(counter==1 || counter==100 || counter ==190 || counter==350 || counter == 600 || counter == 1700 || counter == 2900)
             {
@@ -78,7 +79,7 @@ public class LVL2 extends World
                 r = Greenfoot.getRandomNumber(301);
                 addObject(new Edificio2(),r, 10);
             }
-            if(counter == 4000)
+            if(counter == 4000 || score == 3000)
             {
                 Greenfoot.setWorld(new YouWin());
             }
@@ -90,7 +91,7 @@ public class LVL2 extends World
     {
         showText("LVL2" , 200, 30);
         showText("Vidas: " + nave.vidas(), 400,30);
-        showText("Puntos: " + nave.Score(), 300, 30);
+        showText("Puntos: " + score, 300, 30);
         generaEnemigos();
     }
 }
